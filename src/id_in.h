@@ -230,8 +230,7 @@ typedef enum IN_ControlType
 	IN_ctrl_Keyboard2,
 	IN_ctrl_Joystick1,
 	IN_ctrl_Joystick2,
-	IN_ctrl_Mouse,
-	IN_ctrl_All
+	IN_ctrl_Mouse
 } IN_ControlType;
 
 extern const char *IN_ControlType_Strings[];
@@ -277,16 +276,12 @@ typedef enum IN_JoyConfItem
 
 void IN_PumpEvents();
 void IN_WaitKey();
-void IN_SetupKbdControls();
-void IN_SaveKbdControls();
 const char *IN_GetScanName(IN_ScanCode scan);
 bool IN_GetKeyState(IN_ScanCode scanCode);
 IN_ScanCode IN_GetLastScan(void);
 void IN_SetLastScan(IN_ScanCode scanCode);
 char IN_GetLastASCII(void);
 void IN_SetLastASCII(char c);
-void IN_StartTextInput(const char *reason, const char *existing);
-void IN_StopTextInput();
 void IN_SetControlType(int player, IN_ControlType type);
 void IN_GetJoyAbs(int joystick, int *x, int *y);
 uint16_t IN_GetJoyButtonsDB(int joystick);
@@ -313,14 +308,12 @@ void IN_SetJoyConf(IN_JoyConfItem item, int value);
 bool IN_GetJoyButtonFromMask(uint16_t mask, IN_JoyConfItem btn);
 bool IN_IsJoyButtonDown(IN_JoyConfItem btn);
 const char *IN_GetJoyName(int joystick);
-const char *IN_GetJoyButtonName(int joystick, int button);
 
 // Called by the backend.
 bool INL_StartJoy(int joystick);
 void INL_StopJoy(int joystick);
 void IN_HandleKeyUp(IN_ScanCode sc, bool special);
 void IN_HandleKeyDown(IN_ScanCode sc, bool special);
-void IN_HandleTextEvent(const char *utf8Text);
 
 typedef struct IN_Backend
 {
@@ -334,14 +327,10 @@ typedef struct IN_Backend
 	void (*joyGetAbs)(int joystick, int *x, int *y);
 	uint16_t (*joyGetButtons)(int joystick);
 	const char *(*joyGetName)(int joystick);
-	const char *(*joyGetButtonName)(int joystick, int index);
-	void (*startTextInput)(const char *reason, const char *oldText);
-	void (*stopTextInput)();
 
 	// minimum and maximum values returned by joyGetAbs();
 	// requirement: 0 < (joyAxisMax - joyAxisMin) <= 92681
 	int joyAxisMin, joyAxisMax;
-	bool supportsTextEvents;
 } IN_Backend;
 
 IN_Backend *IN_Impl_GetBackend();

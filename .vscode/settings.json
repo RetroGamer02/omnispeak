@@ -1,4 +1,8 @@
 {
 	"editor.tabSize": 8,
 	"editor.insertSpaces": false,
+	"files.associations": {
+		"sdl.h": "c",
+		"sdl_endian.h": "c"
+	},
 }
