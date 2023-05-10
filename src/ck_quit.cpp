@@ -55,4 +55,5 @@ void Quit(const char *msg)
 #endif
 		//exit(-1);
 	}
+	return;
 }

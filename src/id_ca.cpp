@@ -1157,7 +1157,7 @@ void CA_CacheAudioChunk(int16_t chunk)
 
 void CA_LoadAllSounds(void)
 {
-	int16_t offset; // FIXME: What about a mode differing from 1 or 2?
+	int16_t offset = 0; // FIXME: What about a mode differing from 1 or 2?
 	uint16_t loopvar;
 	if (oldsoundmode != sdm_Off)
 	{

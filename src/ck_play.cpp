@@ -2010,6 +2010,7 @@ void CK_NormalCamera(CK_object *obj)
 	if (ck_currentEpisode->ep == EP_CK6 && ck6_smashScreenDistance)
 	{
 		int16_t dx, ax;
+		dx = 0;
 
 		ax = ck6_smashScreenOfs[ck6_smashScreenDistance] + obj->clipRects.unitY2;
 		deltaY += (dx - ax); // Undefined behaviour here

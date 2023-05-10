@@ -1042,6 +1042,12 @@ void USL_PlayPaddleWar(void)
 	IN_ControlFrame status;
 	int16_t ball_y_speed, ball_x;
 
+	//Init Vars
+	ball_visible = 0;
+	speedup_delay = 0;
+	ball_x_speed = 0;
+	ball_x = 0;
+
 	keen_x = comp_x = 148;
 	ball_real_x = ball_real_y = ball_y_speed = 0;
 	old_ball_x = old_comp_x = old_keen_x = 78;

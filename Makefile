@@ -58,7 +58,7 @@ CFLAGS	:= -Wall -Wcast-align -g -O3 -mword-relocations \
 		 -ffunction-sections \
 		$(ARCH)
 
-CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS -D__3DS__ -DSDL_BUILDING_3DS -DWITH_SDL -DCK_VANILLA -DFS_DEFAULT_KEEN_PATH=\"3ds/OmniSpeak/KEEN/\" -DFS_DEFAULT_USER_PATH=\"3ds/OmniSpeak/\" -DFS_DEFAULT_OMNI_PATH=\"3ds/OmniSpeak/Omni/\"
+CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS -D__3DS__ -DSDL_BUILDING_3DS -DWITH_SDL -DCK_VANILLA
 
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 

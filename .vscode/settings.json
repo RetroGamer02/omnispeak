@@ -5,4 +5,5 @@
 		"sdl.h": "c",
 		"sdl_endian.h": "c"
 	},
+	"cmake.configureOnOpen": false,
 }

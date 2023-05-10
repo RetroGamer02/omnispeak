@@ -154,6 +154,7 @@ void CK5_SeekKeen(CK_object *obj)
 	// is stored in the axes (same as Dir_nodir from the CK_Dir enum).
 	// Maybe there were different plans at some point.
 	int closestAxis, farthestAxis, cardinalDir, principalDir;
+	cardinalDir = CD_east;
 
 	// Convert x and y motions into current controldirection
 	if (obj->xDirection == IN_motion_Right)

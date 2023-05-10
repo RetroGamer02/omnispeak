@@ -88,7 +88,7 @@ typedef enum {
         ATTACK,
 } OperatorState;
 
-struct _Operator {
+struct __attribute__((packed)) _Operator {
 	VolumeHandler volHandler;
 
 #if (DBOPL_WAVE == WAVE_HANDLER)
@@ -129,7 +129,7 @@ struct _Operator {
 	Bit8u ksr;
 };
 
-struct _Channel {
+struct __attribute__((packed)) _Channel {
 	Operator op[2];
 	SynthHandler synthHandler;
 	Bit32u chanData;		//Frequency/octave and derived values

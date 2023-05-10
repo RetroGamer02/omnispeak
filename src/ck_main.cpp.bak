@@ -700,8 +700,6 @@ int main(int argc, char *argv[])
     
 	consoleInit(GFX_BOTTOM, NULL);
 
-	APT_SetAppCpuTimeLimit(70);
-	
 	DIR* dir;
 	dir = opendir("3ds/OmniSpeak");
 	if (dir) {

@@ -379,6 +379,7 @@ bool US_LineInput(uint16_t x, uint16_t y, char *buf, char *def, bool escok, uint
 	bool redraw,
 		cursorvis, cursormoved,
 		done, result;
+		result = 0;
 	IN_ScanCode sc;
 #ifndef CK_VANILLA
 	IN_Cursor joystate;
@@ -665,8 +666,8 @@ int us_argc;
 void US_LoadConfig(void)
 {
 	int16_t inputDevice, configRev;
-	SD_SoundMode sd;
-	ID_MusicMode sm;
+	SD_SoundMode sd = sdm_AdLib;
+	ID_MusicMode sm = smm_AdLib;
 	bool hadQuietSfx = false;
 	bool hadAdlib = false; // Originally this is not set to 0 directly
 	char fileExt[4];

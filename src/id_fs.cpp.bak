@@ -36,8 +36,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "id_mm.h"
 #include "id_us.h"
 
-#include "checkFile.h"
-
 const char *fs_keenPath;
 const char *fs_omniPath;
 const char *fs_userPath;
@@ -130,7 +128,7 @@ FS_File FSL_CreateFileInDir(const char *dirPath, const char *fileName)
 
 bool FSL_IsDirWritable(const char *dirPath)
 {
-	return (checkFile(dirPath, W_OK | X_OK) == 0);
+	return (access(dirPath, W_OK | X_OK) == 0);
 }
 
 size_t FS_GetFileSize(FS_File file)
@@ -200,7 +198,7 @@ size_t FS_GetFileSize(FS_File file)
 #include <sys/types.h>
 #include <unistd.h>
 
-/*FS_File FSL_OpenFileInDirCaseInsensitive(const char *dirPath, const char *fileName, bool forWrite)
+FS_File FSL_OpenFileInDirCaseInsensitive(const char *dirPath, const char *fileName, bool forWrite)
 {
 	DIR *currentDirPtr = opendir(dirPath);
 	if (!currentDirPtr)
@@ -228,17 +226,9 @@ size_t FS_GetFileSize(FS_File file)
 	}
 	closedir(currentDirPtr);
 	return 0;
-}*/
-
-FS_File FSL_OpenFileInDirCaseInsensitive(const char *dirPath, const char *fileName, bool forWrite)
-{
-	char fullFileName[260];
-	sprintf(fullFileName, "%s/%s", dirPath, fileName);
-
-	return fopen(fullFileName, forWrite ? "wb" : "rb");
 }
 
-/*FS_File FSL_CreateFileInDir(const char *dirPath, const char *fileName)
+FS_File FSL_CreateFileInDir(const char *dirPath, const char *fileName)
 {
 	char *fullFileName = (char *)malloc(strlen(dirPath) + 2 + strlen(fileName));
 	sprintf(fullFileName, "%s/%s", dirPath, fileName);
@@ -246,20 +236,12 @@ FS_File FSL_OpenFileInDirCaseInsensitive(const char *dirPath, const char *fileNa
 	FS_File f = fopen(fullFileName, "wb");
 	free(fullFileName);
 	return f;
-}*/
+}
 
 bool FSL_IsDirWritable(const char *dirPath)
 {
 	// TODO: Check this works on DOS with (e.g.) write protected floppies.
-	return 0;//(checkFile(dirPath, W_OK | X_OK) == 0);
-}
-
-FS_File FSL_CreateFileInDir(const char *dirPath, const char *fileName)
-{
-	char fullFileName[260];
-	sprintf(fullFileName, "%s/%s", dirPath, fileName);
-
-	return fopen(fullFileName, "wbx");
+	return (access(dirPath, W_OK | X_OK) == 0);
 }
 
 size_t FS_GetFileSize(FS_File file)
