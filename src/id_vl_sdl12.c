@@ -19,13 +19,13 @@ static void VL_SDL12_SetVideoMode(int mode)
 			const SDL_VideoInfo *vidinfo = SDL_GetVideoInfo();
 			if (vidinfo)
 			{
-				vl_sdl12_desktopWidth = 400;//vidinfo->current_w;
-				vl_sdl12_desktopHeight = 240;//vidinfo->current_h;
+				vl_sdl12_desktopWidth = 320;//vidinfo->current_w;
+				vl_sdl12_desktopHeight = 200;//vidinfo->current_h;
 			}
 			else // Just in case this fails...
 			{
-				vl_sdl12_desktopWidth = 400;//2 * VL_EGAVGA_GFX_WIDTH;
-				vl_sdl12_desktopHeight = 240;//2 * VL_EGAVGA_GFX_HEIGHT;
+				vl_sdl12_desktopWidth = 320;//2 * VL_EGAVGA_GFX_WIDTH;
+				vl_sdl12_desktopHeight = 200;//2 * VL_EGAVGA_GFX_HEIGHT;
 			}
 		}
 
