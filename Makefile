@@ -37,14 +37,14 @@ SOURCES		:=	src src/opl
 INCLUDES	:=	src src/opl
 ROMFS		:=	romfs
 #---------------------------------------------------------------------------------
-APP_VER					:= 0001
-APP_TITLE				:= OmniSpeak 3DS V0.0.1
+APP_VER					:= 0010
+APP_TITLE				:= OmniSpeak 3DS V0.1.0
 APP_DESCRIPTION				:= Commander Keen 4,5,6 for Nintendo 3DS
 APP_AUTHOR				:= RetroGamer02
 PRODUCT_CODE				:= CTR-OMS
 
 #BANNER_AUDIO				:= RapIntro.wav
-#BANNER_IMAGE				:= rapbanner.png
+BANNER_IMAGE				:= oms4-banner.png
 ICON        				:= 3dsicon.png
 
 #---------------------------------------------------------------------------------
