@@ -17,7 +17,6 @@ option(BUILDASCPP "compile all 'c' source files with the C++ compiler" OFF)
 
 set(KEENPATH "." CACHE STRING "set the default path to the Commander Keen data files")
 set(USERPATH "." CACHE STRING "set the default path for user savegames")
-set(OMNIPATH USERPATH CACHE STRING "set the default path for Omnispeak's bundled data files")
 option(XDGUSERPATH "prefer XDG user paths to the default path above" OFF)
 
 
@@ -45,9 +44,6 @@ endif()
 if(USERPATH)
 	add_definitions(-DFS_DEFAULT_USER_PATH="${USERPATH}")
 endif()
-if(OMNIPATH)
-	add_definitions(-DFS_DEFAULT_OMNI_PATH="${OMNIPATH}")
-endif()
 if(XDGUSERPATH)
 	add_definitions(-DFS_USER_PATH_PREFER_XDG=1)
 endif()
@@ -71,27 +67,10 @@ elseif(RENDERER STREQUAL "sdl2vk")
 	message(STATUS "Using SDL 2.0 + Vulkan renderer backend")
 	find_package(SDL2 CONFIG)
 	find_package(Vulkan)
-
-	add_custom_command(OUTPUT id_vl_vk_vert.h
-		COMMAND glslc -mfmt=c
-			${CMAKE_CURRENT_SOURCE_DIR}/src/id_vl_vk_shader.vert
-			-o id_vl_vk_vert.h
-		DEPENDS src/id_vl_vk_shader.vert
-	)
-
-	add_custom_command(OUTPUT id_vl_vk_frag.h
-		COMMAND glslc -mfmt=c
-			${CMAKE_CURRENT_SOURCE_DIR}/src/id_vl_vk_shader.frag
-			-o id_vl_vk_frag.h
-		DEPENDS src/id_vl_vk_shader.frag
-	)
-
 	set(OMNISPEAK_PLATFORM_SRCS
 		src/id_in_sdl.c
 		src/id_sd_sdl.c
 		src/id_vl_sdl2vk.c
-		${CMAKE_CURRENT_BINARY_DIR}/id_vl_vk_vert.h
-		${CMAKE_CURRENT_BINARY_DIR}/id_vl_vk_frag.h
 	)
 	set(OMNISPEAK_PLATFORM_LIBRARIES
 		${Vulkan_LIBRARIES}
@@ -100,7 +79,6 @@ elseif(RENDERER STREQUAL "sdl2vk")
 	include_directories(
 		${SDL2_INCLUDE_DIRS}
 		${VULKAN_INCLUDE_DIRS}
-		${CMAKE_CURRENT_BINARY_DIR}
 	)
 	add_definitions(-DWITH_SDL)
 elseif(RENDERER STREQUAL "sdl2gl")

@@ -431,8 +431,9 @@ extern bool ck_inHighScores;
 extern uint8_t *ck_starWarsPalette;
 extern uint8_t *ck_terminator_palette1;
 extern uint8_t *ck_terminator_palette2;
+extern const char *ck_storyText;
 
-typedef struct introbmptypestruct
+typedef struct __attribute__((packed)) introbmptypestruct
 {
 	uint16_t height, width;
 	uint16_t linestarts[200];
@@ -689,5 +690,7 @@ extern int ROBOREDROCK_MUS;
 extern int FANFARE_MUS;
 extern int BRINGEROFWAR_MUS;
 extern int LASTMUSTRACK;
+
+extern const char *STR_EXIT_TO_MAP;
 
 #endif

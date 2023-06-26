@@ -87,8 +87,8 @@ typedef enum {
         DECAY,
         ATTACK,
 } OperatorState;
-
-struct __attribute__((packed)) _Operator {
+//__attribute__((packed)) //Fixme
+struct _Operator {
 	VolumeHandler volHandler;
 
 #if (DBOPL_WAVE == WAVE_HANDLER)

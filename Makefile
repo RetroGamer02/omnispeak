@@ -31,7 +31,6 @@ include $(DEVKITARM)/3ds_rules
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-CTRULIB		:=	$(CURDIR)/libctru22
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	src src/opl
@@ -39,14 +38,14 @@ INCLUDES	:=	src src/opl
 ROMFS		:=	romfs
 #---------------------------------------------------------------------------------
 APP_VER					:= 0001
-APP_TITLE				:= OmniSpeak3DS
-APP_DESCRIPTION				:= Commander Keen 4/5/6 for Nintendo 3DS
+APP_TITLE				:= OmniSpeak 3DS V0.0.1
+APP_DESCRIPTION				:= Commander Keen 4,5,6 for Nintendo 3DS
 APP_AUTHOR				:= RetroGamer02
-PRODUCT_CODE				:= CTR-KOS
+PRODUCT_CODE				:= CTR-OMS
 
 #BANNER_AUDIO				:= RapIntro.wav
 #BANNER_IMAGE				:= rapbanner.png
-ICON        				:= ctricon.png
+ICON        				:= 3dsicon.png
 
 #---------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------
@@ -54,8 +53,8 @@ ICON        				:= ctricon.png
 #---------------------------------------------------------------------------------
 ARCH	:= -march=armv6k -mtune=mpcore -mfloat-abi=hard -mtp=soft
 
-CFLAGS	:= -Wall -Wcast-align -g -O3 -mword-relocations \
-		 -ffunction-sections \
+CFLAGS	:= -Wall -Wcast-align -g -O2 -mword-relocations \
+		 -ffunction-sections  \
 		$(ARCH)
 
 CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS -D__3DS__ -DSDL_BUILDING_3DS -DWITH_SDL -DCK_VANILLA
@@ -65,13 +64,13 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 ASFLAGS	:= $(ARCH)
 LDFLAGS	=	-specs=3dsx.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lsdl -lcitro3d -lctru -lm
+LIBS	:= -lSDL -lcitro3d -lctru -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:= $(CTRULIB) $(CURDIR)/sdl12n3ds
+LIBDIRS	:= $(CURDIR)/libctru23 $(PORTLIBS)
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional

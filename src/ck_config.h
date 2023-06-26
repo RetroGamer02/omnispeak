@@ -39,8 +39,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #ifdef CK_DEBUG
 // Debug version of the ID_MM_Arena allocator.
 #define ID_MM_DEBUGARENA
-// Typechecking for variables.
-#define CK_VAR_TYPECHECK
 // Warn on out-of-bounds access to tileinfo.
 #define CK_WARN_ON_TILEINFO_OOB
 // Support the /DUMPFILE option for the playloop dumper
@@ -71,13 +69,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 // Default paths for Omni / Keen / User files.
 // (See the id_fs.h documentation for more info.)
 #ifndef FS_DEFAULT_KEEN_PATH
-#define FS_DEFAULT_KEEN_PATH "sdmc:/3ds/OmniSpeak/KEEN"
+#define FS_DEFAULT_KEEN_PATH "sdmc:/3ds/OmniSpeak/Keen"
 #endif
 #ifndef FS_DEFAULT_OMNI_PATH
 #define FS_DEFAULT_OMNI_PATH FS_DEFAULT_KEEN_PATH
 #endif
 #ifndef FS_DEFAULT_USER_PATH
-#define FS_DEFAULT_USER_PATH "sdmc:/3ds/OmniSpeak"
+#define FS_DEFAULT_USER_PATH "sdmc:/3ds/OmniSpeak/Keen/User"
 #endif
 
 // Look for Omnispeak-specific files in the Keen directory first
@@ -103,12 +101,5 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #define FS_XDG_ORGANISATION "Commander Keen"
 #define FS_XDG_APPLICATION "Omnispeak"
-
-// =================================
-// Cache Manager (ID_CA) options. 
-// =================================
-
-// Read uncompressed audio data (AUDIOT, AUDIOHED)
-//#define CA_AUDIOUNCOMPRESSED
 
 #endif //CK_CONFIG_H
