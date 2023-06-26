@@ -402,7 +402,7 @@ int USL_ConfirmComm(US_CardCommand command)
 	int ask_user;
 
 	if (command == US_Comm_None)
-		printf("USL_ConfirmComm() - empty comm"); /* quit */
+		Quit("USL_ConfirmComm() - empty comm"); /* quit */
 
 	result = 1;
 	ask_user = 0;

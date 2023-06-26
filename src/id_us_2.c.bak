@@ -413,7 +413,7 @@ int USL_ConfirmComm(US_CardCommand command)
 		s1 = "REALLY END CURRENT GAME?";
 		s2 = "PRESS Y TO END IT";
 		if (game_in_progress && game_unsaved)
-			ask_user = 1;
+			ask_user = 0;
 		break;
 
 	case US_Comm_Quit:
@@ -426,7 +426,7 @@ int USL_ConfirmComm(US_CardCommand command)
 		s1 = "YOU'RE IN A GAME";
 		s2 = "PRESS Y TO LOAD GAME";
 		if (game_in_progress && game_unsaved)
-			ask_user = 1;
+			ask_user = 0;
 		break;
 
 	case US_Comm_NewEasyGame:
@@ -435,7 +435,7 @@ int USL_ConfirmComm(US_CardCommand command)
 		s1 = "YOU'RE IN A GAME";
 		s2 = "PRESS Y FOR NEW GAME";
 		if (game_in_progress && game_unsaved)
-			ask_user = 1;
+			ask_user = 0;
 		break;
 
 	default:

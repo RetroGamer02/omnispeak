@@ -2311,7 +2311,11 @@ void CK_PlayLoop()
 		// exit the playloop.
 		if (IN_DemoGetMode() == IN_Demo_Playback)
 		{
-			if (!vl_screenFaded && (IN_GetLastScan() != IN_SC_None))
+			//if (!vl_screenFaded && (IN_GetLastScan() != IN_SC_None))
+			hidScanInput();
+			uint32_t kDown = hidKeysDown();
+
+			if (!vl_screenFaded && kDown)
 			{
 				ck_gameState.levelState = LS_LevelComplete;
 				if (IN_GetLastScan() != IN_SC_F1)
