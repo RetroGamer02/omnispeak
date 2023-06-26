@@ -1217,7 +1217,7 @@ void CK_CheckKeys()
 	{
 
 		IN_ClearKeysDown();
-		//printf(NULL);
+		printf(NULL);
 	}
 }
 

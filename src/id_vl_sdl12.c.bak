@@ -55,7 +55,7 @@ static void VL_SDL12_SetVideoMode(int mode)
 	else
 	{
 		SDL_ShowCursor(1);
-		// The main window will be freed by SDL_Quit()
+		// The main window will be freed by SDL_QUIT()
 	}
 }
 

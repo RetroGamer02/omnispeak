@@ -149,7 +149,7 @@ FS_File FSL_CreateFileInDir(const char *dirPath, const char *fileName)
 
 bool FSL_IsDirWritable(const char *dirPath)
 {
-	return true; //(checkFile(dirPath, W_OK | X_OK) == 0);
+	return true;//(checkFile(dirPath, W_OK | X_OK) == 0);
 }
 
 size_t FS_GetFileSize(FS_File file)

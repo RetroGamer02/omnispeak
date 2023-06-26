@@ -301,7 +301,7 @@ static void IN_SDL_HandleSDLEvent(SDL_Event *event)
 	switch (event->type)
 	{
 	case SDL_QUIT:
-		Quit(0);
+		//printf(0); //Fixme
 		break;
 	case SDL_KEYDOWN:
 		sc = INL_SDLKeySymToScanCode(&event->key.keysym);
