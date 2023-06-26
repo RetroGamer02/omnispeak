@@ -736,7 +736,7 @@ void US_LoadConfig(void)
 	{
 		sd = sdm_Off;
 		sm = smm_Off;
-		inputDevice = 0;
+		inputDevice = 2; //3DS Builtin Joypad
 		ck_scoreBoxEnabled = true;
 		ck_twoButtonFiring = false;
 		configFileLoaded = false;

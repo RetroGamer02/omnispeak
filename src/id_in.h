@@ -261,11 +261,11 @@ extern bool in_joyAdvancedMotion;
 
 typedef enum IN_JoyConfItem
 {
-	IN_joy_jump,
-	IN_joy_pogo,
-	IN_joy_fire,
-	IN_joy_menu,
-	IN_joy_status,
+	IN_joy_jump = 1,
+	IN_joy_pogo = 3,
+	IN_joy_fire = 2,
+	IN_joy_menu = 0,
+	IN_joy_status = 4,
 #ifdef QUICKSAVE_ENABLED
 	IN_joy_quickload,
 	IN_joy_quicksave,

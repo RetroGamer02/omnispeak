@@ -608,7 +608,7 @@ void In_GetJoyMotion(int joystick, IN_Motion *p_x, IN_Motion *p_y)
 void IN_ReadCursor(IN_Cursor *cursor)
 {
 #ifdef VANILLA
-	bool forceJoyMenu = CFG_GetConfigBool("in_forceJoyMenu", false);
+	bool forceJoyMenu = CFG_GetConfigBool("in_forceJoyMenu", true);
 #else
 	bool forceJoyMenu = CFG_GetConfigBool("in_forceJoyMenu", true);
 #endif
