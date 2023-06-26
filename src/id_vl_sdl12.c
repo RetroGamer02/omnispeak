@@ -19,13 +19,13 @@ static void VL_SDL12_SetVideoMode(int mode)
 			const SDL_VideoInfo *vidinfo = SDL_GetVideoInfo();
 			if (vidinfo)
 			{
-				vl_sdl12_desktopWidth = vidinfo->current_w;
-				vl_sdl12_desktopHeight = vidinfo->current_h;
+				vl_sdl12_desktopWidth = 400;//vidinfo->current_w;
+				vl_sdl12_desktopHeight = 240;//vidinfo->current_h;
 			}
 			else // Just in case this fails...
 			{
-				vl_sdl12_desktopWidth = 2 * VL_EGAVGA_GFX_WIDTH;
-				vl_sdl12_desktopHeight = 2 * VL_EGAVGA_GFX_HEIGHT;
+				vl_sdl12_desktopWidth = 400;//2 * VL_EGAVGA_GFX_WIDTH;
+				vl_sdl12_desktopHeight = 240;//2 * VL_EGAVGA_GFX_HEIGHT;
 			}
 		}
 
@@ -34,14 +34,14 @@ static void VL_SDL12_SetVideoMode(int mode)
 			vl_sdl12_screenSurface = SDL_SetVideoMode(vl_sdl12_desktopWidth,
 				vl_sdl12_desktopHeight,
 				0, SDL_DOUBLEBUF | SDL_HWSURFACE | SDL_FULLSCREEN);
-			vl_sdl12_screenWholeRect.w = VL_VGA_GFX_SHRUNK_WIDTH_PLUS_BORDER;
-			vl_sdl12_screenWholeRect.h = VL_VGA_GFX_SHRUNK_HEIGHT_PLUS_BORDER;
-			vl_sdl12_screenWholeRect.x = (vl_sdl12_desktopWidth - vl_sdl12_screenWholeRect.w) / 2;
-			vl_sdl12_screenWholeRect.y = (vl_sdl12_desktopHeight - vl_sdl12_screenWholeRect.h) / 2;
-			vl_sdl12_screenBorderedRect.w = VL_EGAVGA_GFX_WIDTH;
-			vl_sdl12_screenBorderedRect.h = VL_EGAVGA_GFX_HEIGHT;
-			vl_sdl12_screenBorderedRect.x = vl_sdl12_screenWholeRect.x + VL_VGA_GFX_SHRUNK_LEFTBORDER_WIDTH;
-			vl_sdl12_screenBorderedRect.y = vl_sdl12_screenWholeRect.y + VL_VGA_GFX_SHRUNK_TOPBORDER_HEIGHT;
+			vl_sdl12_screenWholeRect.w = 320;
+			vl_sdl12_screenWholeRect.h = 200;
+			vl_sdl12_screenWholeRect.x = 0;
+			vl_sdl12_screenWholeRect.y = 0;
+			vl_sdl12_screenBorderedRect.w = 320;
+			vl_sdl12_screenBorderedRect.h = 200;
+			vl_sdl12_screenBorderedRect.x = 0;
+			vl_sdl12_screenBorderedRect.y = 0;
 		}
 		else
 		{

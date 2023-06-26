@@ -87,7 +87,7 @@ typedef enum {
         DECAY,
         ATTACK,
 } OperatorState;
-//__attribute__((packed)) //Fixme
+
 struct _Operator {
 	VolumeHandler volHandler;
 

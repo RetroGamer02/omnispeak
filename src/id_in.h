@@ -261,6 +261,7 @@ extern bool in_joyAdvancedMotion;
 
 typedef enum IN_JoyConfItem
 {
+	//Remapped for 3ds
 	IN_joy_jump = 1,
 	IN_joy_pogo = 3,
 	IN_joy_fire = 2,

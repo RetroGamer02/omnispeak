@@ -263,7 +263,7 @@ bool FSL_IsDirWritable(const char *dirPath)
 {
 	// TODO: Check this works on DOS with (e.g.) write protected floppies.
 	//return (checkFile(dirPath, W_OK | X_OK) == 0);
-	return true;
+	return true; //Fixme
 }
 
 size_t FS_GetFileSize(FS_File file)

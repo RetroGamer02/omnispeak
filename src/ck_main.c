@@ -674,7 +674,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	bool isFullScreen = CFG_GetConfigBool("fullscreen", false);
+	bool isFullScreen = CFG_GetConfigBool("fullscreen", true);
 	bool isAspectCorrected = CFG_GetConfigBool("aspect", true);
 	bool hasBorder = CFG_GetConfigBool("border", true);
 	bool isIntegerScaled = CFG_GetConfigBool("integer", false);
