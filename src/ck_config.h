@@ -72,7 +72,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define FS_DEFAULT_KEEN_PATH "sdmc:/3ds/OmniSpeak/Keen"
 #endif
 #ifndef FS_DEFAULT_OMNI_PATH
-#define FS_DEFAULT_OMNI_PATH FS_DEFAULT_KEEN_PATH
+#define FS_DEFAULT_OMNI_PATH "romfs:/."
 #endif
 #ifndef FS_DEFAULT_USER_PATH
 #define FS_DEFAULT_USER_PATH "sdmc:/3ds/OmniSpeak/Keen/User"

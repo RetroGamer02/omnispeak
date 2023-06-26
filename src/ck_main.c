@@ -386,7 +386,7 @@ void CK_DemoLoop()
 		// argument ("easy", "normal", "hard")
 
 		CK_GameLoop();
-		//printf(0); //Fixme // run_ted
+		Quit(0); // run_ted
 	}
 
 	/*
@@ -461,7 +461,7 @@ void CK_DemoLoop()
 		}
 	}
 
-	printf("Demo loop exited!?");
+	Quit("Demo loop exited!?");
 }
 
 /* Basically a set of hacks: By commenting out the relevant "define" line,
@@ -790,7 +790,7 @@ int main(int argc, char *argv[])
 			ck_gameState.levelState = LS_Playing;
 
 			CK_PlayDemoFile(argv[i + 1]);
-			//printf(0); //Fixme
+			Quit(0);
 		}
 		else if (!CK_Cross_strcasecmp(argv[i], "/PLAYDEMO"))
 		{
@@ -798,7 +798,7 @@ int main(int argc, char *argv[])
 			ck_gameState.levelState = LS_Playing;
 
 			CK_PlayDemo(atoi(argv[i + 1]));
-			//printf(0); //Fixme
+			Quit(0);
 		}
 
 	}
