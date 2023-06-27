@@ -69,7 +69,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 // Default paths for Omni / Keen / User files.
 // (See the id_fs.h documentation for more info.)
 #ifndef FS_DEFAULT_KEEN_PATH
-#define FS_DEFAULT_KEEN_PATH "sdmc:/3ds/OmniSpeak/"
+#define FS_DEFAULT_KEEN_PATH "sdmc:/3ds/OmniSpeak"
 #endif
 #ifndef FS_DEFAULT_OMNI_PATH
 #define FS_DEFAULT_OMNI_PATH "romfs:/."

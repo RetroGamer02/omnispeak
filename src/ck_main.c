@@ -711,12 +711,43 @@ int main(int argc, char *argv[])
 	const char *dumperFilename = NULL;
 #endif
 
+	int8_t selectedEp = 0;
+	uint32_t kDown;
+
+	printf("\nPlease Select an Episode:\n");
+	printf("Ep 4 Press A\n");
+	printf("Ep 5 Press X\n");
+	printf("Ep 6 Press Y\n");
+	while(selectedEp == 0)
+	{
+		hidScanInput();
+		kDown = hidKeysDown();
+		
+		if (kDown & KEY_A)
+		{
+			selectedEp = 4;
+			ck_currentEpisode = &ck4_episode;
+		}
+
+		if (kDown & KEY_X)
+		{
+			selectedEp = 5;
+			ck_currentEpisode = &ck5_episode;
+		}
+
+		if (kDown & KEY_Y)
+		{
+			selectedEp = 6;
+			ck_currentEpisode = &ck6v14e_episode;
+		}
+	}
+
 	for (int i = 1; i < argc; ++i)
 	{
 		if (!CK_Cross_strcasecmp(argv[i], "/EPISODE"))
 		{
 			// A bit of stuff from the usual demo loop
-			if (argc >= i + 1)
+			/*if (argc >= i + 1)
 			{
 				if (!strcmp(argv[i + 1], "4"))
 					ck_currentEpisode = &ck4_episode;
@@ -737,7 +768,7 @@ int main(int argc, char *argv[])
 					ck_currentEpisode = &ck6v15e_episode;
 				else
 					printf("Unsupported episode!");
-			}
+			}*/
 		}
 		else if (!CK_Cross_strcasecmp(argv[i], "/FULLSCREEN"))
 		{
