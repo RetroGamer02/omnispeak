@@ -39,6 +39,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #ifdef __3DS__
 #include <3ds.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <errno.h>
 #endif
 
 #ifdef WITH_SDL
@@ -648,6 +652,29 @@ int main(int argc, char *argv[])
 	Result rc = romfsInit();
 	if (rc)
 		printf("romfsInit: %08lX\n", rc);
+
+	DIR* dir; 
+	
+	dir = opendir("sdmc:/3ds/OmniSpeak");
+	if (dir) {
+		closedir(dir);
+	} else if (ENOENT == errno) {
+		//printf("OmniSpeak directory error: %d\n" ,errno);
+		mkdir("sdmc:/3ds/OmniSpeak", 0700);
+		mkdir("sdmc:/3ds/OmniSpeak/User", 0700);
+	} else {
+		printf("OmniSpeak directory unknown error.\n");
+	}
+
+	dir = opendir("sdmc:/3ds/OmniSpeak/User");
+	if (dir) {
+		closedir(dir);
+	} else if (ENOENT == errno) {
+		//printf("User directory error: %d\n" ,errno);
+		mkdir("sdmc:/3ds/OmniSpeak/User", 0700);
+	} else {
+		printf("User directory unknown error.\n");
+	}
 
 	#endif
 
