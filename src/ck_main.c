@@ -653,7 +653,7 @@ int main(int argc, char *argv[])
 	if (rc)
 		printf("romfsInit: %08lX\n", rc);
 
-	DIR* dir; 
+	DIR* dir;
 	
 	dir = opendir("sdmc:/3ds/OmniSpeak");
 	if (dir) {
@@ -741,6 +741,8 @@ int main(int argc, char *argv[])
 			ck_currentEpisode = &ck6v14e_episode;
 		}
 	}
+
+	consoleClear(); //Clears 3ds bottom text screen
 
 	for (int i = 1; i < argc; ++i)
 	{

@@ -424,7 +424,7 @@ void SD_SDL_Startup(void)
 #else
 		//SD_SDL_t0Thread = SDL_CreateThread(SD_SDL_t0InterruptThread, NULL);
 		APT_SetAppCpuTimeLimit(70);
-		SD_SDL_t0Thread = threadCreate(SD_SDL_t0InterruptThread,0, 128, 0x18, 1, false);
+		SD_SDL_t0Thread = threadCreate(SD_SDL_t0InterruptThread, NULL, 1024, 0x18, 1, false);
 #endif
 	}
 }
