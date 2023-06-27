@@ -43,6 +43,8 @@
 #include "opl/dbopl.h"
 #include "opl/nuked_opl3.h"
 
+#include <3ds.h>
+
 #define PC_PIT_RATE 1193182
 #define SD_SFX_PART_RATE 140
 /* In the original exe, upon setting a rate of 140Hz or 560Hz for some
@@ -74,7 +76,8 @@ static uint32_t SD_ALOut_SamplesStart = 0, SD_ALOut_SamplesEnd = 0;
 static volatile int SD_SDL_timerDivisor = 1;
 static volatile bool SD_SDL_useTimerFallback = false;
 static uint64_t SD_SDL_nextTickAt = 0;
-static SDL_Thread *SD_SDL_t0Thread = 0;
+//static SDL_Thread *SD_SDL_t0Thread = 0;
+static Thread *SD_SDL_t0Thread = 0;
 
 /* NEVER call this from the SDL callback!!! (Or you want a deadlock?) */
 void SD_SDL_SetTimer0(int16_t int_8_divisor)
@@ -419,7 +422,9 @@ void SD_SDL_Startup(void)
 #if SDL_VERSION_ATLEAST(2, 0, 0)
 		SD_SDL_t0Thread = SDL_CreateThread(SD_SDL_t0InterruptThread, "ID_SD: t0 interrupt thread.", NULL);
 #else
-		SD_SDL_t0Thread = SDL_CreateThread(SD_SDL_t0InterruptThread, NULL);
+		//SD_SDL_t0Thread = SDL_CreateThread(SD_SDL_t0InterruptThread, NULL);
+		APT_SetAppCpuTimeLimit(70);
+		SD_SDL_t0Thread = threadCreate(SD_SDL_t0InterruptThread,0, 128, 0x18, 1, false);
 #endif
 	}
 }
@@ -435,7 +440,8 @@ void SD_SDL_Shutdown(void)
 	if (SD_SDL_useTimerFallback)
 	{
 		SD_SDL_useTimerFallback = false;
-		SDL_WaitThread(SD_SDL_t0Thread, NULL);
+		//SDL_WaitThread(SD_SDL_t0Thread, NULL);
+		threadJoin(SD_SDL_t0Thread, U64_MAX);
 	}
 }
 
