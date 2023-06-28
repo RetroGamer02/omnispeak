@@ -271,7 +271,8 @@ void MM_BombOnError(bool bomb)
 
 #ifndef ID_MM_DEBUGARENA
 
-struct __attribute__((packed)) ID_MM_Arena
+__attribute__((packed))
+struct ID_MM_Arena
 {
 	size_t size;
 	size_t currentOffset;

@@ -433,7 +433,8 @@ extern uint8_t *ck_terminator_palette1;
 extern uint8_t *ck_terminator_palette2;
 extern const char *ck_storyText;
 
-typedef struct __attribute__((packed)) introbmptypestruct
+//__attribute__((packed))
+typedef struct introbmptypestruct
 {
 	uint16_t height, width;
 	uint16_t linestarts[200];

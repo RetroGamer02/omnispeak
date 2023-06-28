@@ -129,7 +129,8 @@ struct _Operator {
 	Bit8u ksr;
 };
 
-struct __attribute__((packed)) _Channel {
+//__attribute__((packed))
+struct _Channel {
 	Operator op[2];
 	SynthHandler synthHandler;
 	Bit32u chanData;		//Frequency/octave and derived values
