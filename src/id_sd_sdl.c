@@ -348,7 +348,11 @@ void SD_SDL_Startup(void)
 {
 	const char *oplEmuString = CFG_GetConfigString("oplEmulator", "dbopl");
 	if (!CK_Cross_strcasecmp(oplEmuString, "nukedopl3"))
+	{
 		sd_oplEmulator = SD_OPL_EMULATOR_NUKED;
+		//It will need this but only works on New 3DS Models
+		osSetSpeedupEnable(true);
+	}
 	else if (!CK_Cross_strcasecmp(oplEmuString, "dbopl"))
 		sd_oplEmulator = SD_OPL_EMULATOR_DBOPL;
 	else
