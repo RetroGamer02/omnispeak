@@ -70,7 +70,7 @@ LIBS	:= -lSDL -lcitro3d -lctru -lm
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:= $(CURDIR)/libctru23 $(PORTLIBS)
+LIBDIRS	:= $(CURDIR)/libctru23 $(CTRULIB) $(PORTLIBS)
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
