@@ -647,7 +647,16 @@ int main(int argc, char *argv[])
 
 	gfxInitDefault();
     
-	consoleInit(GFX_BOTTOM, NULL);
+	uint8_t *model;
+
+	CFGU_GetSystemModel(model);
+
+	if (model != CFG_MODEL_2DS)
+	{
+		gfxSetWide(true);
+	}
+
+	consoleInit(GFX_TOP, NULL);
 
 	Result rc = romfsInit();
 	if (rc)
@@ -743,6 +752,7 @@ int main(int argc, char *argv[])
 	}
 
 	consoleClear(); //Clears 3ds bottom text screen
+	gfxSetWide(false);
 
 	for (int i = 1; i < argc; ++i)
 	{

@@ -427,8 +427,8 @@ void SD_SDL_Startup(void)
 		SD_SDL_t0Thread = SDL_CreateThread(SD_SDL_t0InterruptThread, "ID_SD: t0 interrupt thread.", NULL);
 #else
 		//SD_SDL_t0Thread = SDL_CreateThread(SD_SDL_t0InterruptThread, NULL);
-		APT_SetAppCpuTimeLimit(30);
-		SD_SDL_t0Thread = threadCreate(SD_SDL_t0InterruptThread, NULL, 1024, 0x18, 1, false);
+		//APT_SetAppCpuTimeLimit(30);
+		SD_SDL_t0Thread = threadCreate(SD_SDL_t0InterruptThread, NULL, 1024, 0x32, 0, false);
 #endif
 	}
 }

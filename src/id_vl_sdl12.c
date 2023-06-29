@@ -22,9 +22,16 @@ static void VL_SDL12_SetVideoMode(int mode)
 
 		if (vl_isFullScreen)
 		{
-			vl_sdl12_screenSurface = SDL_SetVideoMode(vl_sdl12_desktopWidth,
-				vl_sdl12_desktopHeight,
-				0, SDL_DOUBLEBUF | SDL_HWSURFACE | SDL_FULLSCREEN);
+			if (vl_isAspectCorrected){
+				vl_sdl12_screenSurface = SDL_SetVideoMode(vl_sdl12_desktopWidth,
+					vl_sdl12_desktopHeight,
+					0, SDL_DOUBLEBUF | SDL_HWSURFACE | SDL_FITHEIGHT);
+			} else {
+				vl_sdl12_screenSurface = SDL_SetVideoMode(vl_sdl12_desktopWidth,
+					vl_sdl12_desktopHeight,
+					0, SDL_DOUBLEBUF | SDL_HWSURFACE | SDL_FULLSCREEN);
+			}
+
 			vl_sdl12_screenWholeRect.w = 320;
 			vl_sdl12_screenWholeRect.h = 200;
 			vl_sdl12_screenWholeRect.x = 0;

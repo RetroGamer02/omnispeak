@@ -37,8 +37,8 @@ SOURCES		:=	src src/opl
 INCLUDES	:=	src src/opl
 ROMFS		:=	romfs
 #---------------------------------------------------------------------------------
-APP_VER					:= 0100
-APP_TITLE				:= OmniSpeak 3DS V1.0.0
+APP_VER					:= 0101
+APP_TITLE				:= OmniSpeak 3DS V1.0.1
 APP_DESCRIPTION				:= Commander Keen 4,5,6 for Nintendo 3DS
 APP_AUTHOR				:= RetroGamer02
 PRODUCT_CODE				:= CTR-OMS
@@ -70,7 +70,7 @@ LIBS	:= -lSDL -lcitro3d -lctru -lm
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:= $(CURDIR)/libctru23 $(CTRULIB) $(PORTLIBS)
+LIBDIRS	:= $(CTRULIB) $(PORTLIBS)
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
