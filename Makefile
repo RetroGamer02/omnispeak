@@ -57,7 +57,7 @@ CFLAGS	:= -Wall -Wcast-align -g -O3 -mword-relocations \
 		 -ffunction-sections  \
 		$(ARCH)
 
-CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS -D__3DS__ -DSDL_BUILDING_3DS -DWITH_SDL 
+CFLAGS	+=	$(INCLUDE) -D__3DS__ -DWITH_SDL
 
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 

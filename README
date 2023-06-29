@@ -13,11 +13,10 @@ Omnispeak's source code can be found on GitHub:
 == INSTALLATION ==
 To play, you'll need to include files from the original game.
 
-Omnispeak supports:
+Omnispeak 3DS supports:
 	- Keen 4 v1.4 EGA
 	- Keen 5 v1.4 EGA
 	- Keen 6 v1.4 EGA
-	- Keen 6 v1.5 EGA
 
 These should be the easiest versions to get. For example, the Steam version and
 the GOG.com version are both version 1.4, as are all the previous downloadable
@@ -33,43 +32,13 @@ The shareware release of Keen 4 v1.4 EGA is available here:
 
 
 You'll need to take the following files from your version of Keen, and place
-them in the same directory as the 'omnispeak' binary:
+them in the '3ds/omnispeak' directory:
 	* GAMEMAPS.CK?
 	* EGAGRAPH.CK?
 	* AUDIO.CK?
 
 You'll also need the files from the 'data' directory corresponding to your
-version of Keen. 
-
-To run the game, simply switch to the directory with the data files, and run:
-	./omnispeak
-
-Omnispeak supports several command-line options, some of which are:
-	/EPISODE <4,5,6,6v14,6v15>
-		- Runs the given episode/version of Commander Keen
-	/GAMEPATH <directory>
-		- Sets the path to the game data files.
-	/USERPATH <directory>
-		- Sets the path to the savegame and config files.
-	/FULLSCREEN
-		- Starts the game in fullscreen mode
-	/FILLED
-		- Starts the game with aspect-ratio correction off.
-	/NOBORDER
-		- Starts the game with EGA overscan border emulation off.
-	/INTEGER
-		- Starts the game with integer scaling enabled.
-	/NOJOYS
-		- Disables Joystick detection.
-	/NOCOPY
-		- Bypasses the "Creature Question" screen in Keen 6.
-	/NOAUDIOSYNC
-		- When using SDL-based sound backends, use the system clock
-		  rather than the audio clock. Available as the
-		  'sd_sdl_noAudioSync' config option.
-		  (Works around issues with some SDL audio backends under wine)
-	/DEMOFILE <filename>
-		- Plays the demo recorded with Keen's F10+D cheat in filename.
+version of Keen.
 
 == CONFIGURATION ==
 
@@ -79,8 +48,6 @@ This is a simple key/value file which looks something like this:
 --8<--
 # Graphics settings
 fullscreen = true
-border = true
-integer = false
 
 # The OPL emulator used by the SDL audio backend
 # Valid values: "dbopl" (DOSBox), "nukedopl3" (NukedOPL3)
@@ -95,47 +62,9 @@ all episodes.
 
 == COMPILING ==
 
-The source code for Omnispeak is available on GitHub:
-	https://github.com/sulix/omnispeak
-
 You'll find it in the src/ directory and built with make.
 
 Omnispeak should build fine on most Linux distributions.
-
-You'll need to have the Simple Directmedia Layer 2.0 installed, with the
-sdl2-config program somewhere in your path.
-
-When compiled, an 'omnispeak' binary will appear in 'bin/', along with
-the files from the 'data' directories.
-
-Cross-compilation for 32-bit and 64-bit Windows targets using MinGW32-Win64
-is also supported. Omnispeak can also be compiled using recent versions of
-Microsoft Visual C++ using the provided CMake build system.
-
-Cross-compilation for the GCW Zero is possible using the [GCW Zero
-toolchain](http://www.gcw-zero.com/develop).
-
-Cross-compilation for 32-bit MS-DOS using DJGPP is available, though the port
-is quite buggy. Simply run:
-	make PLATFORM=dos
-A 486 and about 4MB of RAM are recommended to play Omnispeak under DOS.
-
-On Linux, real OPL2 compatible soundcards can be used in place of the Adlib
-emulation by building with either the WITH_ALSA=1 option (for most soundcards),
-or the WITH_IEEE1284=1 option (for the OPL2LPT). These require libasound and libieee1284
-respectively, and must be enabled at runtime by setting the "sd_backend" option
-to "alsa" or "opl2lpt". (The ALSA device can be configured with the
-"sd_alsa_device" option, and the parallel port for the OPL2LPT can be set with
-"sd_opl2lpt_port".)
-
-Packagers should note that it's possible to change the default KEEN and USER
-paths with the make KEENPATH= and make USERPATH= options. Similarly, savegames
-can be stored in the $XDG_DATA_HOME directory with the make XDGUSERPATH=1 option.
-Additional options can be found in the ``src/ck_config.h`` file.
-For example, you could build with:
-	make KEENPATH=/usr/share/omnispeak XDGUSERPATH=1
-
-To see a full list of build options, just run `make help`.
 
 == NEW FEATURES ==
 
@@ -144,7 +73,7 @@ in the final save slot to be saved and loaded without needing to navigate
 the menu. This is done with the F5 and F9 keys by default: they can be changed
 in the Keyboard bindings menu.
 
-Omnispeak also greatly expands Keyboard and Joystick configuration over the
+Omnispeak also greatly expands Joystick configuration over the
 original DOS games. Additional keys / buttons can be re-bound, and a 'modern'
 mode for the joystick is often easier to use, particularly when moving
 diagonally.
@@ -152,10 +81,7 @@ diagonally.
 == REPORTING BUGS ==
 
 Please report bugs and feature requests on GitHub at:
-https://github.com/sulix/omnispeak/issues
-
-Alternatively, you can email me at:
-david@davidgow.net
+https://github.com/RetroGamer02/omnispeak-3ds/issues
 
 == END OF TEXT ==
 
